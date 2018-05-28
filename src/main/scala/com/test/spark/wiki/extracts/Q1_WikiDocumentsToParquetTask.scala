@@ -90,6 +90,17 @@ case class Q1_WikiDocumentsToParquetTask(bucket: String) extends Runnable {
       .parquet(bucket)
 
     // TODO Q5 Quel est l'avantage du format parquet par rapport aux autres formats ?
+    /*
+    est un format de stockage en colonne ainsi il bénéficie des avantages de ce modéle
+telque eviter les I/O et potentiellement la décompression des colonnes ne faisant pas partie de la requête.
+
+ il supporte les structures de données complexes ainsi que la lecture et l’écriture par les APIs d’Avro et Thrift, sans oublier les évolutions de schéma.
+compatible avec toutes les interfaces MapReduce comme Java, Hive, Pig et plusieurs moteurs d’exécution comme Impala Hadoop.
+
+
+
+
+     */
 
     // TODO Q6 Quel est l'avantage de passer d'une séquence scala à un dataset spark ?
     /*

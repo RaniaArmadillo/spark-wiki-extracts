@@ -36,9 +36,21 @@ case class Q2_ShowLeagueStatsTask(bucket: String) extends Runnable {
     // TODO Q3
     println("En Dataset, quelle est la moyenne de points des vainqueurs sur les 5 différents championnats ?")
 
+    standings.filter(x=>x.position==1).agg(avg($"points")).as[Long].show()
+
+
+
+
+
     // TODO Q5 Ecrire une udf spark "decade" qui retourne la décennie d'une saison sous la forme 199X ?
-    
-    val decade= udf((x: Int) =>)
+    val decadeval = (season: Int) => {
+      season.toString.replaceAll(".$",".X")
+
+    }
+    val decade=udf(decadeval)
+
+
+
 
     // TODO Q4
     println("En Dataset, quelle est la moyenne de points d'écart entre le 1er et le 10ème de chaque championnats " +
